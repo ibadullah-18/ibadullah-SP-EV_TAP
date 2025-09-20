@@ -28,7 +28,7 @@ while (true)
         case "5": AddToBlacklist(); break;
         case "6": RemoveFromBlacklist(); break;
         case "7": ShowBlacklist(); break;
-        case "8": return;
+        case "8": thankYouMessage(); return;
         default: Console.WriteLine("Invalid choice!"); break;
     }
 }
@@ -147,4 +147,46 @@ void ShowBlacklist()
     else
         foreach (var proc in blackList)
             Console.WriteLine(proc);
+}
+
+void thankYouMessage()
+{
+
+    Console.Clear();
+
+    ConsoleColor[] colors = {
+        ConsoleColor.Yellow, ConsoleColor.Cyan, ConsoleColor.Magenta,
+        ConsoleColor.Green, ConsoleColor.Blue
+        };
+
+    Console.WriteLine("\n\n\n");
+    string[] art = {
+                         "\t                                                                          ",
+                         "\t                                                                          ",
+                         "\t████████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗    ██╗   ██╗ ██████╗ ██╗   ██╗",
+                         "\t╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝    ╚██╗ ██╔╝██╔═══██╗██║   ██║",
+                         "\t   ██║   ███████║███████║██╔██╗ ██║█████╔╝      ╚████╔╝ ██║   ██║██║   ██║",
+                         "\t   ██║   ██╔══██║██╔══██║██║╚██╗██║██╔═██╗       ╚██╔╝  ██║   ██║██║   ██║",
+                         "\t   ██║   ██║  ██║██║  ██║██║ ╚████║██║  ██╗       ██║   ╚██████╔╝╚██████╔╝",
+                         "\t   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝       ╚═╝    ╚═════╝  ╚═════╝ "
+        };
+
+    for (int i = 0; i < colors.Length; i++)
+    {
+        Console.Clear();
+        Console.ForegroundColor = colors[i];
+        Console.WriteLine("\n\n");
+
+        foreach (var line in art)
+        {
+            Console.WriteLine("\t\t" + line);
+        }
+
+        Console.WriteLine("\n\n\t\t\t\t\t     Thank you for visiting!");
+        Console.WriteLine("\t\t\t\t\t     Hope to see you again soon!");
+        Console.WriteLine("\t\t\t\t\t     Goodbye and good luck! 💫");
+
+        Thread.Sleep(700);
+        Console.ForegroundColor = ConsoleColor.Black;
+    }
 }
